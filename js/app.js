@@ -54,7 +54,6 @@ function MsgsCtrl($scope, $location, $routeParams) {
   $scope.webSocketPeer = $scope.peer.to('ws://localhost:20500/');
   console.log('connecting to onramp');
   $scope.peer_list = new Array();
-  $scope.peer_list.push('hello');
   // Listen to the messages the onramp server sends
   $scope.webSocketPeer.on('message', function(message){
       console.log(message);

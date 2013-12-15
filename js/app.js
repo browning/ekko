@@ -30,7 +30,6 @@ function KeysCtrl($scope, $location, $routeParams) {
   else {
     $scope.message = "You already have keys"
     $scope.pk = localStorage['pk']
-
   }
 
 }

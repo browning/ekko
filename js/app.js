@@ -49,24 +49,24 @@ function MsgsCtrl($scope, $location, $routeParams) {
   }
 
   // peerjs stuff
-  var peer = P.create()
+  $scope.peer = P.create();
 
-  var webSocketPeer = peer.to('ws://localhost:20500/');
+  $scope.webSocketPeer = $scope.peer.to('ws://localhost:20500/');
   console.log('connecting to onramp');
-  var peer_list = new Array();
-
+  $scope.peer_list = new Array();
+  $scope.peer_list.push('hello');
   // Listen to the messages the onramp server sends
-  webSocketPeer.on('message', function(message){
+  $scope.webSocketPeer.on('message', function(message){
       console.log(message);
           // If we recieve a remote address, add it to peer list
           if(message === "remote address"){
                   var peerAddress = arguments[1];
-                  peer_list.push(peerAddress);
+                  $scope.$apply(function() {$scope.peer_list.push(peerAddress); });
                   console.log('Potential peer: ' + peerAddress);
           }
   });
 
-  webSocketPeer.on('connection', handleRtcConnection);
+  $scope.webSocketPeer.on('connection', handleRtcConnection);
 
   function handleRtcConnection(webRtcPeer){
           // When ever another browser connects, listen for messages

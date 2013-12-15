@@ -1,11 +1,17 @@
 <h3>hello, welcome to ekko</h3>
 
-<div ng-if="keys_existed">
+<div ng-if="keys_existed" class="warning">
 	You already had ekko encryption keys stored in your browser, we will use those
 </div>
-<div ng-if="!keys_existed">
+<div ng-if="!keys_existed" class="warning">
     You didn't have any keys so we generated some for you, here you go...
 </div>
 
 Your public key is: {{ pk }}
+
+<br /><br />
+
+<button type="button" class="btn btn-warning" ng-click="regenerate_keys()">Regenerate your keys</button>
+<button type="button" class="btn btn-success" ng-click="proceed()">Proceed to ekko</button>
+
 

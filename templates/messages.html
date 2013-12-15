@@ -1,9 +1,7 @@
 <br />
 <div class="col-md-3">
 	<table class="table table-hover">
-	  <tr><td>Messages to you</td></tr>
-	  <tr><td>Politics Discussions</td></tr>
-	  <tr><td>Crypto Discussions</td></tr>
+	  <tr ng-repeat="chan in channels"><td>{{chan.name}}</td></tr>
 	</table>
 </div>
 <div class="col-md-9">

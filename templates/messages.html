@@ -1,7 +1,9 @@
 <br />
 <div class="col-md-3">
 	<table class="table table-hover">
-	  <tr ng-repeat="chan in channels"><td>{{chan.name}}</td></tr>
+	  <tr ng-repeat="chan in channels" 
+	  	ng-class="{success: $index==displayed_channel}"
+	  	ng-click="select_chan($index);"><td>{{chan.name}}</td></tr>
 	</table>
 </div>
 <div class="col-md-9">

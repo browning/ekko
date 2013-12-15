@@ -39,6 +39,12 @@ function MsgsCtrl($scope, $location, $routeParams) {
   {'name': 'Crypto Discussions', 
     'pk': [245, 246, 193, 153, 229, 234, 254, 165, 139, 43, 49, 120, 44, 160, 12, 204, 205, 192, 155, 58, 12, 102, 228, 97, 165, 25, 249, 16, 189, 135, 129, 91],
     'sk': [229, 21, 94, 204, 217, 84, 83, 11, 185, 18, 197, 97, 106, 26, 147, 137, 82, 223, 167, 216, 125, 157, 46, 4, 71, 53, 166, 112, 37, 66, 155, 86]}];
+
+  $scope.displayed_channel = 0;
+
+  $scope.select_chan = function(chan) {
+    $scope.displayed_channel = chan;
+  }
 }
 
 function KeysCtrl($scope, $location, $routeParams) {

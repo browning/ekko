@@ -7,9 +7,10 @@
 	</table>
 </div>
 <div class="col-md-9">
+	<div ng-if="channels[displayed_channel].messages.length == 0" class="warning">
+		No messages in this channel... yet.
+	</div>
 	<table class="table table-hover table-condensed table-striped">
-	<tr><td>RE: to you</td></tr>
-	<tr><td>Important Announcemet</td></tr>
-	<tr><td>hello world</td></tr>
+		<tr ng-repeat="msg in channels[displayed_channel].messages"><td>{{msg.subject}}</td></tr>
 	</table>
 </div>

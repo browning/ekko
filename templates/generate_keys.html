@@ -1,6 +1,11 @@
 <h3>hello, welcome to ekko</h3>
 
-<p>{{message}}</p>
+<div ng-if="keys_existed">
+	You already had ekko encryption keys stored in your browser, we will use those
+</div>
+<div ng-if="!keys_existed">
+    You didn't have any keys so we generated some for you, here you go...
+</div>
 
 Your public key is: {{ pk }}
 

@@ -30,9 +30,9 @@ function KeysCtrl($scope, $location, $routeParams) {
   $scope.name = $routeParams.name;
 
   if ( !localStorage['pk'] ) {
-    $scope.message = "Creating a key for you"
     var nacl = nacl_factory.instantiate();
     mykeys = nacl.crypto_box_keypair();
+    $scope.keys_existed = false
     $scope.pk = convertKeyToHex(mykeys.boxPk);
     $scope.sk = convertKeyToHex(mykeys.boxSk);
 
@@ -40,7 +40,7 @@ function KeysCtrl($scope, $location, $routeParams) {
     localStorage['sk'] = JSON.stringify(mykeys.boxSk);
   }
   else {
-    $scope.message = "You already have keys";
+    $scope.keys_existed = true
     $scope.pk = convertKeyToHex(JSON.parse(localStorage['pk']));
   }
 
